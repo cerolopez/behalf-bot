@@ -11,21 +11,19 @@
 
 </head>
 <body>
-    <nav class="navbar home">
+    <nav class="navbar about">
         <h1>Behalf Bot</h1>
-        <a href="{{ url_for('about') }}">
-            <button id="nav-button">About</button>
+        <a href="{{ url_for('home') }}">
+            <button id="nav-button">Chat</button>
         </a>
     </nav>
     <main>
-        <div class="container chat">
-            <div id="chat-box"></div>
-            <div id="message-box">
-                <input type="text" id="user-input" placeholder="Type a message...">
-                <button onclick="sendMessage()">Send</button>
+        <div class="container default">
+            <div class="content">
+                <h2>About</h2>
+                <p>Behalf Bot was created by Cecilia Lopez using GPT-4 and prompt engineering. She used professional data publicly available on her LinkedIn and website to inform Behalf Bot's responses. Learn more by watching her demo.</p>
             </div>
         </div>
-        <div><p id="subtitle">Powered by GPT-4 and custom prompt engineering. This bot does not store user data.</p></div>
     </main>
     <footer>
         <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose at gmail dot com | Website: cerolopez.github.io</p>
