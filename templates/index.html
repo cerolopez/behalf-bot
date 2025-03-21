@@ -14,18 +14,18 @@
     <nav class="navbar home">
         <h1>Behalf Bot</h1>
         <a href="{{ url_for('about') }}">
-            <button id="nav-button">About</button>
+            <button class="button nav-button">About</button>
         </a>
     </nav>
     <main>
-        <div class="container chat">
+        <div class="container">
             <div id="chat-box"></div>
             <div id="message-box">
                 <input type="text" id="user-input" placeholder="Type a message...">
-                <button onclick="sendMessage()">Send</button>
+                <button class="button send-btn" onclick="sendMessage()">Send</button>
             </div>
         </div>
-        <div><p id="subtitle">Powered by GPT-4 and custom prompt engineering. This bot does not store user data.</p></div>
+        <div id="subtitle-container"><p id="subtitle">Powered by GPT-4 and custom prompt engineering. This bot does not store user data.</p></div>
     </main>
     <footer>
         <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose at gmail dot com | Website: cerolopez.github.io</p>

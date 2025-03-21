@@ -1,9 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
     text-align: center;
-    background-color: #ffffff;
     margin: 0;
     padding: 0;
+}
+
+@media (max-width: 800px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+main {
+    flex: 1;
 }
 
 .navbar {
@@ -12,24 +24,14 @@ body {
     align-items: center;
     padding: 30px 50px;
     flex-wrap: wrap;
-}
+    background: #BCBBF2;
 
-.home {
-    background: #C7BFD9;
-}
-
-.about {
-    background: #EDE9F2;
 }
 
 @media (max-width: 800px) {
     .navbar {
-        padding: 30px 10px;
+        padding: 10px 10px;
     }
-}
-
-main {
-    flex: 1;
 }
 
 .container {
@@ -37,34 +39,47 @@ main {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    background: #EDE9F2;
+    background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 14px rgba(89, 22, 22, 0.5);
+    box-shadow: 0 0 5px rgba(00, 00, 00, 0.5);
     padding: 10px;
-}
-
-.chat {
-    background: #EDE9F2;
-}
-
-.default {
-    background: #C7BFD9;
-
-}
-
-.content {
-    padding: 30px;
-    justify-content: left;
 }
 
 @media (max-width: 800px) {
     .container {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 10;
+        width: 90%;
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.content {
+    padding: 30px;
+    text-align: left;
+}
+
+@media (max-width: 800px) {
+    .content {
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+@media (max-width: 800px) {
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        padding: 10px;
     }
 }
 
@@ -75,10 +90,18 @@ main {
 }
 
 #message-box {
-    background-color: white;
     margin: 20px;
     border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f2f2f2;
     justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+    #message-box {
+        margin: 5px;
+    }
 }
 
 .message {
@@ -95,16 +118,15 @@ main {
 }
 
 .user {
-    background: #011F26;
+    background: #030A8C;
     color: white;
     text-align: right;
     margin-left: auto;
-
 }
 
 .bot {
-    background: white;
-    color: #011F26;
+    background: #f2f2f2;
+    color: #000344;
     text-align: left;
 }
 
@@ -117,27 +139,44 @@ main {
     padding-bottom: 10px;
 }
 
-button {
+@media (max-width: 800px) {
+    #user-input {
+        width: 75%;
+        height: 30px;
+    }
+}
+
+.button {
     all: unset;
     padding: 10px 15px;
     cursor: pointer;
-    background-color: #011F26;
-    color: #EDE9F2;
+    background-color: #000344;
+    color: #ffffff;
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #4ED9D9;
-    color: #011F26;
+.button:hover {
+    background-color: #E9E8FF;
+    color: #000344;
+}
+
+.send-btn {
+    padding: 10px 15px;
 }
 
 a {
     text-decoration: none;
 }
 
-#nav-button {
-    font-size: 20px;
+.nav-button {
+    font-size: 16px;
     padding: 10px 25px;
+}
+
+@media (max-width: 800px) {
+    .nav-button {
+        font-size: 16px;
+    }
 }
 
 h1 {
@@ -145,21 +184,43 @@ h1 {
     font-size: 40px;
     font-weight: 400;
     margin: 0;
-    color: #011F26;
+    color: #000344;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 20px;
+    }
 }
 
 h2 {
     font-family: "Inter", sans-serif;
-    font-size: 30px;
-    font-weight: 300;
-    color: #011F26;
+    font-size: 35px;
+    font-weight: 400;
+    color: #000344;
+}
+
+#header {
+    padding-top: 40px;
 }
 
 p {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #011F26;
+    color: #000344;
+}
+
+#subtitle-container {
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    #subtitle-container {
+        text-align: left;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
 #subtitle {
@@ -167,7 +228,7 @@ p {
     font-size: 12px;
     font-weight: 300;
     font-style: italic;
-    color: #011F26;
+    color: #000344;
 }
 
 footer {
@@ -176,11 +237,21 @@ footer {
     margin: 0;
 }
 
+@media (max-width: 800px) {
+    footer {
+        padding-top: 75px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0;
+    }
+}
+
 footer p {
     font-family: "Inter", sans-serif;
     font-size: 10px;
     font-weight: 300;
-    color: #011F26;
+    color: #000344;
     opacity: 50%;
     margin: 0;
 }

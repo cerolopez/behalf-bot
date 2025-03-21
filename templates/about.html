@@ -14,15 +14,18 @@
     <nav class="navbar about">
         <h1>Behalf Bot</h1>
         <a href="{{ url_for('home') }}">
-            <button id="nav-button">Chat</button>
+            <button class="button nav-button">Chat</button>
         </a>
     </nav>
     <main>
-        <div class="container default">
-            <div class="content">
-                <h2>About</h2>
-                <p>Behalf Bot was created by Cecilia Lopez using GPT-4 and prompt engineering. She used professional data publicly available on her LinkedIn and website to inform Behalf Bot's responses. Learn more by watching her demo.</p>
-            </div>
+        <div id="header"><h2>About</h2></div>
+        <div class="container">
+            <p class="content">Behalf Bot was created by Cecilia Lopez using GPT-4 and prompt engineering. She used professional data publicly available on her LinkedIn and website to inform Behalf Bot's responses. Learn more by watching her demo.</p>
+        </div>
+        <div class="button-container">
+            <button class="button nav-button">Demo</button>
+            <button class="button nav-button">Figma</button>
+            <button class="button nav-button">GitHub</button>
         </div>
     </main>
     <footer>
