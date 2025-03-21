@@ -1,0 +1,38 @@
+{
+    "skills": [
+        {
+            "Content Strategy": "SEO, Web Design, Content Creation, Digital Marketing, Google Analytics", 
+            "Content Development": "Editing, Proofreading, Writing, AP Style Guide, Chicago Manual of Style",
+            "Content Management": "WordPress, Content Management Systems, Asana, Trello",
+            "UX/UI": "User Interviews, Usability Testing, Accessibility, Wireframing, Prototyping, Figma","Prompt Engineering": "Python, Jupyter Notebook, GPT-4",
+            "Web Development": "HTML5, CSS3, JavaScript, React, Node.js, WordPress"
+        }
+    ], 
+    "linkedin referrals": [
+        {
+            "name": "Stephanie Shields",
+            "relationship to cecilia": "manager",
+            "received": "11-2022",
+            "referral": "I managed Cecilia for the past three years and will sincerely miss having her on my team. Cecilia is an expert in the research landscape and somebody whom I trust to get a job done exceptionally well. When I handed her something brand new, she was resourceful and knew how to do the research and get in touch with the right people to make it happen. She's well-versed in handling complex workflows and navigating/prioritizing requests for a myriad of stakeholders. She oversaw the content audit for our Meta Research website, spearheaded a website localization effort, took on full vendor management (web dev) when I went out on parental leave, and is truly one of the most empathetic and compassionate individuals I have ever met. I have no doubt she will go on to do amazing things and will one day be leading a highly creative and compassionate team of her own."
+        }, 
+        {
+            "name": "Eleanor Cleverly",
+            "relationship to cecilia": "coworker",
+            "received": "11-2022",
+            "referral": "Cecilia is a true pleasure to work with. She's professional and serious about delivering results, not only for the team she supports, but in the broader context of the company she works in. She's open to feedback and innovating on established practices, not only pushing forward her own ideas but championing initiatives authored by her colleagues as well. Cecilia is dependable, deadline driven, and highly accountable in everything she takes on. On a personal note, I find Cecilia to be one of the more kind, funny, and emotionally intelligent coworkers I've worked with. She cares deeply for others and is proactive about building strong, candid interpersonal relationships. Cecilia's skillset is flexible and she'd be a great addition to any team — I hope to work with her again in the future!"
+        }, 
+        {
+            "name": "Julius Kusuma",
+            "relationship to cecilia": "colleague",
+            "received": "11-2022",
+            "referral": "Cecilia oversaw a major re-tooling of Meta / Facebook's research website: research.fb.com. Research is important for all tech companies and it's certainly the case at Meta / Facebook. For this re-tooling, Cecilia led key activities: \n* Surveying internal and external clients, and synthesized a recommendation \n* Oversaw IT development of the re-tooling effort and implementation \n* Educating internal users on how to best use the new system \nCecilia also produced many contents that my team published on the research website. Here are a few things Cecilia did well that I want to highlight: \n* Communication. She is very responsive and gives good feedback. \n* Quality. She produces great content with high quality narratives and presentations. \nThanks for being a great partner, Cecilia!"
+        },
+        {
+            "name": "Xavier Pineda",
+            "relationship to cecilia": "coworker",
+            "received": "03-2018",
+            "referral": "“Insightful and sharp” are the adjectives that come to mind when I think of Cecilia. Cecilia masterfully filled the role of Content Editor for Shmoop University during my time there. She ran multiple concurrent projects, pushing the people who reported to her to create better and better content. I was particularly impressed with Cecilia's ability to move from seemingly disparate projects with ease, making those projects her own. Cecilia, who always made everyone around the office feel welcome, would be an asset to any team."
+        }
+    ]
+    
+}

@@ -10,6 +10,12 @@ function sendMessage() {
     userMessage.innerText = userInput;
     chatBox.appendChild(userMessage);
 
+    // Append bot response
+    let botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.innerHTML = "<em>Generating...</em>";
+    chatBox.appendChild(botMessage);
+
     // Clear input field
     document.getElementById("user-input").value = "";
 
@@ -21,14 +27,16 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        // Append bot response
-        let botMessage = document.createElement("div");
-        botMessage.className = "message bot";
-        botMessage.innerText = data.response;
-        chatBox.appendChild(botMessage);
+
+        // replace text in div
+        botMessage.innerHTML = data.response;
 
         // Scroll chat to bottom
         chatBox.scrollTop = chatBox.scrollHeight;
     })
     .catch(error => console.error("Error:", error));
+}
+
+function generatingResponse() {
+
 }
