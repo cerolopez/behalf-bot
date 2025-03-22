@@ -25,7 +25,13 @@ function sendMessage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (response.status === 429) {
+            alert("Slow down! You've hit the request limit. Try again in a minute.")
+            throw new Error("Too many requests");
+        }
+        return response.json()
+    })
     .then(data => {
 
         // replace text in div

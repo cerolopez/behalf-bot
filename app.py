@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 import os
 import openai
 import json
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -32,6 +34,8 @@ with open("content/training.json", "r") as file:
 
 app = Flask(__name__)
 
+limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -41,9 +45,12 @@ def about():
     return render_template('about.html')
 
 @app.route("/chat", methods=["POST"])
+@limiter.limit("5 per minute")
 def chat():
-
     user_message = request.json["message"]
+
+    if len(user_message) > 50:
+        return jsonify({"response": "Please send a message under 50 words."}), 400
 
     response = client.responses.create(
         model="gpt-4o",
@@ -62,7 +69,7 @@ def chat():
         Here are her academic and extracurricular courses: {courseData}\
         Here are her coding projects: {projData}\
         """,
-        input=user_message,
+        input=user_message
     )
 
 
