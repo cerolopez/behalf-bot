@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import os
 import openai
 import json
@@ -35,6 +35,10 @@ with open("content/training.json", "r") as file:
 app = Flask(__name__)
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
+
+@app.route('/favicon.png')
+def favicon():
+    return send_from_directory("static", "favicon.png", mimetype="image/vnd.microsoft.icon")
 
 @app.route('/')
 def home():
