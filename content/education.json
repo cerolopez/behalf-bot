@@ -1,5 +1,5 @@
 {
-    "education": [
+    "degrees": [
         {
             "degree": "Master of Science",
             "area of study": "Computer Science",
@@ -15,35 +15,6 @@
             "start date": "August 2010",
             "end date": "March 2014",
             "coursework": "Advanced Topics in Syntax (graduate-level), Semantics (graduate-level), Natural Language Acquisition (graduate-level), Phonology, El humor en español"
-        }
-    ], 
-    "certifications": [
-        {
-            "course name": "React Native",
-            "learning platform": "Coursera",
-            "issue date": "November 2024"
-        },
-        {
-            "course name": "React Basics",
-            "learning platform": "Coursera",
-            "issue date": "June 2024"
-        },
-        {
-            "course name": "Advanced Learning Algorithms",
-            "learning platform": "Coursera",
-            "issue date": "May 2023"
-        },
-        {
-            "course name": "Supervised Machine Learning: Regression and Classification",
-            "learning platform": "Coursera",
-            "issue date": "February 2023"
-        }
-    ], 
-    "online courses": [
-        {
-            "course name": "ChatGPT Prompt Engineering for Developers",
-            "learning platform": "Coursera",
-            "issue date": "March 2025"
         }
     ]
 }

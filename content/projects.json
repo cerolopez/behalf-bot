@@ -1,0 +1,59 @@
+{
+    "projects": [
+        {
+            "name": "Behalf Bot", 
+            "skills involved": [
+                "frontend web development", "backend web development", "prompt engineering", "UX design", "content writing"
+            ], 
+            "tech stack": [
+                "OpenAI API", "Flask", "Render", "Python", "JavaScript", "HTML", "CSS"
+            ],
+            "last update": "03-2025",
+            "description": "Behalf Bot is an AI chatbot designed to answer recruitment-related questions about my own experience. The chatbot uses OpenAI's GPT-4o to generate responses based on my employment history, skills, referrals, projects, and education. I created this project by myself, which involved creating the UI and design in Figma, creating content and writing instructions for GPT-4, coding the app itself, making it responsive, and deploying to Render."
+        }, 
+        {
+            "name": "MacroMath", 
+            "skills involved": [
+                "frontend web development", "UX design"
+            ], 
+            "tech stack": [
+                "React Native", "JavaScript", "HTML", "CSS"
+            ],
+            "last update": "03-2025",
+            "description": "Macro Math is a mobile app designed to make calculating macronutrients a lot easier for gym goers who like to cook their own recipes. I am using a React Native frontend and will likely use a Node.js backend. I am the sole contributor of this project and created the Figma prototype myself."
+        }, 
+        {
+            "name": "Professional Website", 
+            "skills involved": [
+                "frontend web development", "UX design"
+            ], 
+            "tech stack": [
+                "JavaScript", "HTML", "CSS"
+            ],
+            "last updated": "03-2025",
+            "description": "I created my website from scratch using JavaScript, HTML, and CSS. My most recent update involved moving page content from HTML files to JSON files and writing a script to iteratively populate them into styled cards on each page. I defined card types based on the content on my website (like buttons vs no buttons) and attributed IDs to them so I could style them in one script based on their type, as opposed to using a different script per card and repeating code."
+        },
+        {
+            "name": "This Is Where", 
+            "skills involved": [
+                "frontend web development", "backend web development", "web design"
+            ], 
+            "tech stack": [
+                "JavaScript", "HTML", "CSS", "React", "Node.JS", "MongoDB"
+            ],
+            "last updated": "12-2022",
+            "description": "For my Web Dev class, a classmate and I chose to create This Is Where, an app where people can share a sentiment that is connected to a place in time in the SF Bay Area. We built it with a React frontend and Node backend. We both contributed to the backend and frontend, but my main focus was frontend."
+        },
+        {
+            "name": "Dater", 
+            "skills involved": [
+                "frontend web development", "backend web development", "web design"
+            ], 
+            "tech stack": [
+                "JavaScript", "HTML", "CSS", "Node.JS", "MongoDB"
+            ],
+            "last updated": "11-2022",
+            "description": "For my Web Dev class, a classmate and I conceptualized Dater, an app where users can answer compatibility questions after a first date. The idea is that they can only see their date's answers if they answer their own. It's meant to encourage and facilitate openness and honesty in dating, with oneself and others. We built it with a Node backend and vanilla JS frontend, and my main focus was frontend. We were also using Figma for the first time."
+        }
+    ]
+}

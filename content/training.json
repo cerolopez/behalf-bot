@@ -1,0 +1,147 @@
+{
+    "computer science courses": [
+        {
+            "name": "Web Development", 
+            "tech stack": ["JavaScript", "HTML", "CSS", "MongoDB", "Bootstrap", "React", "MongoDB, Node.js"],
+            "year taken": "2022"
+        }, 
+        {
+            "name": "Natural Language Processing", 
+            "tech stack": ["Python", "Jupyter Notebook", "BERT", "GPT"],
+            "year taken": "2023"
+        }, 
+        {
+            "name": "Machine Learning", 
+            "tech stack": ["Python", "Jupyter Notebook"],
+            "year taken": "2023"
+        },
+        {
+            "name": "Human-Computer Interaction", 
+            "tech stack": ["Figma"],
+            "year taken": "2024"
+        },
+        {
+            "name": "Information Retrieval", 
+            "tech stack": ["ElasticSearch"],
+            "year taken": "2023"
+        },
+        {
+            "name": "Object-Oriented Design", 
+            "tech stack": ["Java"],
+            "year taken": "2022"
+        },
+        {
+            "name": "Data Structures, Algorithms, and Their Applications Within Computer Systems", 
+            "tech stack": ["C"],
+            "year taken": "2022"
+        },
+        {
+            "name": "Algorithms", 
+            "tech stack": ["None"],
+            "year taken": "2022"
+        },
+        {
+            "name": "Intensive Foundations of Computer Science", 
+            "tech stack": ["Python"],
+            "year taken": "2021"
+        },
+        {
+            "name": "Discrete Structures", 
+            "tech stack": ["None"],
+            "year taken": "2021"
+        }
+    ], 
+    "linguistics courses": [
+        {
+            "name": "Advanced Topics in Syntax 1", 
+            "year taken": "2010-2014"
+        }, 
+        {
+            "name": "Advanced Topics in Syntax 2", 
+            "year taken": "2012"
+        },
+        {
+            "name": "The Humor in Spanish", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Introduction to Hispanic Linguistics", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Morphology", 
+            "year taken": "2012"
+        }, 
+        {
+            "name": "Phonology A (graduate-level)", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Phonology 1", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Phonology 2", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Psycholinguistics", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Second Language Acquisition (graduate-level)", 
+            "year taken": "2012"
+        },
+        {
+            "name": "Semantics 1", 
+            "year taken": "2010"
+        },
+        {
+            "name": "Semantics 2", 
+            "year taken": "2011"
+        },
+        {
+            "name": "Structure of Irish", 
+            "year taken": "2013"
+        },
+        {
+            "name": "Syntax 1", 
+            "year taken": "2010"
+        },
+        {
+            "name": "Syntax 2", 
+            "year taken": "2011"
+        },
+        {
+            "name": "Spanish 3 through 6", 
+            "year taken": "2010-2014"
+        }
+    ],
+    "extracurricular courses": [
+        {
+            "name": "ChatGPT Prompt Engineering for Developers", 
+            "offered by": ["Coursera", "DeepLearning.AI"],
+            "year taken": "2025"
+        },
+        {
+            "name": "React Native", 
+            "offered by": ["Coursera", "Meta"],
+            "year taken": "2024"
+        },
+        {
+            "name": "React Basics", 
+            "offered by": ["Coursera", "Meta"],
+            "year taken": "2024"
+        },
+        {
+            "name": "Advanced Learning Algorithms", 
+            "offered by": ["Coursera", "DeepLearning.AI", "Stanford Online"],
+            "year taken": "2023"
+        },
+        {
+            "name": "Supervised Machine Learning: Regression and Classification", 
+            "offered by": ["Coursera", "DeepLearning.AI", "Stanford Online"],
+            "year taken": "2023"
+        }
+    ]
+}

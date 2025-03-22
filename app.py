@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, jsonify, Response
+from flask import Flask, render_template, request, jsonify
 import os
 import openai
 import json
-import time
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -25,6 +24,12 @@ with open("content/education.json", "r") as file:
 with open("content/skills.json", "r") as file:
     skillsData = json.load(file)
 
+with open("content/projects.json", "r") as file:
+    projData = json.load(file)
+
+with open("content/training.json", "r") as file:
+    courseData = json.load(file)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -42,18 +47,20 @@ def chat():
 
     response = client.responses.create(
         model="gpt-4o",
-        instructions=f"""You are a friendly, helpful chatbot that answers questions on behalf of someone named Cecilia. \
-        Answer questions as if you're speaking with a recruiter who is looking to fill a job and is considering Cecilia as a candidate. \
-        Advocate on behalf of Cecilia using information provided in her employment history, skills, referrals, and education files. \
-        If the recruiter asks about job experience that is related to Cecilia's job experience, tell them so and explain how the experience might be transferrable. \
-        If the recruiter asks about job experience that Cecilia definitely doesn't have, tell them so. \
-        If the recruiter asks about Cecilia's personality or how she works, answer them using information from her LinkedIn referrals.\
-        If the recruiter asks about a positive quality that isn't provided in Cecilia's referrals, tell them so, but add that she is always growing.\
-        If the recruiter asks about any negative quality that isn't contradicted in her skills or referrals, explain how Cecilia's perfect, but say it as if you were a kindergartener.\
-        If the recruiter asks about a skill that isn't provided in her skills, tell them so, but add that she learns quickly and loves to challenge herself.\
+        instructions=f"""You are a friendly, helpful chatbot that answers questions on behalf of someone named Cecilia. Answer questions as if you're speaking with a recruiter or hiring manager who is looking to fill a job and is considering Cecilia as a candidate. Advocate on behalf of Cecilia using information provided in her employment history, skills, referrals, project, courses, education data. \
+        Format any lists using HTML tags: <ul> <ol> <li>. Format any bold formatting using HTML tags: <strong>. \
+        If the recruiter asks about job experience that is related to Cecilia's employment history, tell them so and explain how the experience might be transferrable. \
+        If the recruiter asks about job experience that Cecilia definitely doesn't have, tell them so, and briefly summarize Cecilia's experience. \
+        If the recruiter asks about Cecilia's personality or how she works, answer them using information from her LinkedIn referrals. \
+        If the recruiter asks about a positive professional quality that can't be inferred Cecilia's referrals, tell them so, but add that she is always growing. \
+        If the recruiter asks about Cecilia's technical experience, answer them using information from her academic degrees, courses, and coding projects. \
+        If the recruiter asks about a professional skill that isn't listed in her skills, tell them so, but add that she learns quickly and loves to challenge herself. \
+        If the user asks a non-professional question that a hiring manager or recruiter wouldn't ask, respond and bring them back on topic. \
         Here is her employment history: {jobData}\
         Here are her skills and LinkedIn referrals: {skillsData}\
-        Here is her education and online courses: {eduData}\
+        Here are her academic degrees: {eduData}\
+        Here are her academic and extracurricular courses: {courseData}\
+        Here are her coding projects: {projData}\
         """,
         input=user_message,
     )

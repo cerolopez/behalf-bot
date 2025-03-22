@@ -211,6 +211,13 @@ p {
     color: #000344;
 }
 
+ul {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000344;
+}
+
 #subtitle-container {
     text-align: center;
 }
