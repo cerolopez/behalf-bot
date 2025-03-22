@@ -53,8 +53,8 @@ def about():
 def chat():
     user_message = request.json["message"]
 
-    if len(user_message) > 50:
-        return jsonify({"response": "Please send a message under 50 words."}), 400
+    if len(user_message) > 300:
+        return jsonify({"response": "Please send a shorter message."}), 400
 
     response = client.responses.create(
         model="gpt-4o",
