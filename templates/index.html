@@ -21,6 +21,13 @@
     </nav>
     <main>
         <div class="container">
+            <!-- POPUP WINDOW AND ICON CODE TAKEN AND ADAPTED FROM CHATGPT -->
+            <div class="icon" onclick="openPopup()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                  </svg>
+            </div>
             <div id="chat-box"></div>
             <div id="message-box">
                 <input type="text" id="user-input" placeholder="Ask a question...">
@@ -28,9 +35,35 @@
             </div>
         </div>
         <div id="subtitle-container"><p id="subtitle">Powered by GPT-4 and custom prompt engineering. This bot does not store user data.</p></div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+        <!-- Pop-up Window -->
+        <div class="popup" id="popup">
+            <span class="close-btn" onclick="closePopup()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                  </svg>
+            </span>
+            <h3>What is Behalf Bot? &#129302;</h3>
+            <div class="popup-content">
+                <p>Behalf Bot is a GPT-4 chatbot instructed to answer career questions on behalf of its creator, Cecilia Lopez. Its responses are curated specifically for recruiters and hiring managers. Behalf Bot can do a lot, but it's best at making inferences and summarizing information.</p>
+                <p>Here are some examples of questions you can ask:</p>
+                <ul>
+                    <li>Can you tell me about Cecilia's experience with prompt engineering?</li>
+                    <li>Does Cecilia have experience leading projects?</li>
+                    <li>What are some of Cecilia's biggest strengths?</li>
+                    <li>Would Cecilia's combination of experiences make her an effective UX engineer?</li>
+                </ul>
+                <p>If you catch any bugs, feel free to send a screenshot to Cecilia at the email in the footer &#128522;</p>
+            </div>
+            
+        </div>
+
     </main>
     <footer>
-        <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose at gmail dot com | Website: <a href="https://cerolopez.github.io/">cerolopez.github.io</a></p>
+        <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose at gmail dot com | Website: <a class="footer-link" href="https://cerolopez.github.io/">cerolopez.github.io</a></p>
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
