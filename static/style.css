@@ -56,6 +56,7 @@ main {
 .content {
     padding: 30px;
     text-align: left;
+    color: #000344;
 }
 
 @media (max-width: 800px) {
@@ -165,7 +166,8 @@ main {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
+    color: #000344;
 }
 
 .nav-button {
@@ -208,7 +210,6 @@ p {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 300;
-    color: #000344;
 }
 
 ul {

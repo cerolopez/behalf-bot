@@ -6,14 +6,15 @@ function sendMessage() {
     
     // Append user message
     let userMessage = document.createElement("div");
-    userMessage.className = "message user";
-    userMessage.innerText = userInput;
+    userMessage.className = "message user";          // add classes
+    let finalInput = `<p>${userInput}</p>`;          // wrap input in <p> to match output
+    userMessage.innerHTML = finalInput;             // add wrapped input to new div
     chatBox.appendChild(userMessage);
 
     // Append bot response
     let botMessage = document.createElement("div");
     botMessage.className = "message bot";
-    botMessage.innerHTML = "<em>Generating...</em>";
+    botMessage.innerHTML = "<p><em>Generating...</em></p>";
     chatBox.appendChild(botMessage);
 
     // Clear input field
