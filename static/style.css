@@ -114,7 +114,10 @@ main {
 
 .message {
     margin: 10px;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom:5px;
     border-radius: 15px;
     width: 400px
 }

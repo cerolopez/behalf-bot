@@ -53,3 +53,13 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
+
+function sendIntro() {
+    let chatBox = document.getElementById("chat-box");
+
+    // Append bot response
+    let botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.innerHTML = "<p>Hi there! I'm Behalf Bot. What would you like to know about Cecilia's background?</p>";
+    chatBox.appendChild(botMessage);
+}

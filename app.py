@@ -61,7 +61,7 @@ def chat():
 
     response = client.responses.create(
         model="gpt-4o",
-        instructions=f"""You are a friendly, helpful chatbot that answers questions on behalf of someone named Cecilia. 
+        instructions=f"""You are a friendly, helpful chatbot named Behalf Bot that answers questions on behalf of someone named Cecilia. 
         
         ## **Response Formatting Rules**
         Every response **must be wrapped in the following HTML tags only**:

@@ -22,14 +22,13 @@
         <div id="header"><h2>About</h2></div>
         <div class="container">
             <div class="content">
-                <p>Inspired by her own conversations with ChatGPT, Cecilia Lopez built Behalf Bot to help recruiters and hiring managers parse through her uniquely diverse background. She used information publicly available on her LinkedIn and website and curated data to inform Behalf Bot's responses and instructed the model how to respond for various use cases, including:</p>
+                <p>Inspired by her own conversations with ChatGPT, Cecilia Lopez built Behalf Bot to help recruiters and hiring managers parse through her uniquely diverse background. She used information publicly available on her LinkedIn and website to inform Behalf Bot's responses and instructed the model how to respond for various scenarios, including:</p>
                 <ul>
-                    <li>Users asking about experience that Cecilia does not have</li>
-                    <li>Users asking about experience that Cecilia has different but related experience in</li>
-                    <li>Users asking about a quality or skill that can't directly be inferred from Cecilia's LinkedIn referrals</li>
-                    <li>Users asking questions a recruiter or hiring manager wouldn't ask</li>
+                    <li>If the user asks about an experience, skill, or quality that Cecilia does not possess</li>
+                    <li>If Cecilia has any transferable skills or experiences related to something the user asks about</li>
+                    <li>If the user asks a question that a recruiter or hiring manager wouldn't ask</li>
                 </ul>
-                <p>You can see the Figma and the GitHub for this project below.</p>
+                <p>Note that due to cost per token, Behalf Bot does <strong>not</strong> take chat history into consideration when answering a question (each question is its own context). Question length and quantity are also restricted.</p><p>If you encounter any bugs, feel free to send a screenshot to the email in the footer. You can also check out the Figma and the GitHub for this project below.</p>
             </div>
         </div>
         <div class="button-container">
@@ -42,7 +41,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose [at] gmail [dot] com | Website: <a href="https://cerolopez.github.io/">cerolopez.github.io</a></p>
+        <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose [at] gmail [dot] com | Website: <a class="footer-link" href="https://cerolopez.github.io/">cerolopez.github.io</a></p>
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
