@@ -119,11 +119,6 @@
     ],
     "extracurricular courses": [
         {
-            "name": "AWS Cloud Technical Essentials", 
-            "offered by": ["Coursera", "AWS"],
-            "year taken": "2025 (in progress)"
-        },
-        {
             "name": "ChatGPT Prompt Engineering for Developers", 
             "offered by": ["Coursera", "DeepLearning.AI"],
             "year taken": "2025"
