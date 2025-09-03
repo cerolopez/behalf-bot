@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maya SxS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_comp.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+
+</head>
+<body>
+    <nav class="navbar home">
+        <h1>Maya SxS</h1>
+    </nav>
+    <main>
+        <div id="basic-container">
+            <h2>Current Model Instructions</h2>
+            <p id="instructions"></p>
+        </div>
+        <div class="container">
+            <div id="message-box">
+                <input type="text" id="user-input" placeholder="Ask a question...">
+                <button class="button send-btn" onclick="sendBothMessages()">Send</button>
+            </div>
+        </div>
+        <div class="half-wrapper">
+            <div class="half-container">
+                <div><h2>Claude</h2></div>
+                <div id="claude-box"></div>
+            </div>
+            <div class="half-container">
+                <div><h2>GPT-4</h2></div>
+                <div id="gpt-box"></div>
+            </div>
+        </div>
+        
+        <div id="subtitle-container"><p id="subtitle">Powered by GPT-4, Claude, and custom prompt engineering. This bot does not store user data.</p></div>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Cecilia Lopez. All rights reserved. | Contact: lopezceciliarose [at] gmail [dot] com | Website: <a class="footer-link" href="https://cerolopez.github.io/">cerolopez.github.io</a></p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script_comp.js') }}"></script>
+    <script>
+        function getInstructions() {
+            // let popupContent = document.getElementById("popup-content");
+
+            fetch("/sendInstructions")
+            .then(response => response.json())
+            .then(data => {
+                // replace text in div
+                document.getElementById("instructions").innerHTML = data.instructions;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        getInstructions();
+
+    </script>
+
+</body>
+</html>
