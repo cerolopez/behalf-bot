@@ -1,6 +1,47 @@
 {
     "skills": [
         {
+            "category": "prompt engineering",
+            "skills": [
+                "Python",
+                "Jupyter Notebook",
+                "OpenAI API",
+                "Anthropic API",
+                "linguistics",
+                "writing",
+                "AI content writing"
+            ]
+        },
+        {
+            "category": "web development",
+            "skills": [
+                "JavaScript",
+                "TypeScript",
+                "HTML5",
+                "CSS3",
+                "Python",
+                "Flask",
+                "React",
+                "Node",
+                "MongoDB",
+                "Bootstrap",
+                "Figma",
+                "VSCode",
+                "GitHub"
+            ]
+        },
+        {
+            "category": "AI image generation",
+            "skills": [
+                "Flux API",
+                "Flux LoRA",
+                "Flux Kontext",
+                "stable diffusion models",
+                "image-to-image",
+                "text-to-image"
+            ]
+        },
+        {
             "category": "content strategy",
             "skills": [
                 "SEO",
@@ -57,36 +98,6 @@
                 "wireframing",
                 "prototyping",
                 "Figma"
-            ]
-        },
-        {
-            "category": "prompt engineering",
-            "skills": [
-                "Python",
-                "Jupyter Notebook",
-                "GPT-4",
-                "OpenAI API",
-                "linguistics",
-                "writing",
-                "AI content writing"
-            ]
-        },
-        {
-            "category": "web development",
-            "skills": [
-                "JavaScript",
-                "TypeScript",
-                "HTML5",
-                "CSS3",
-                "Python",
-                "Flask",
-                "React",
-                "Node",
-                "MongoDB",
-                "Bootstrap",
-                "Figma",
-                "VSCode",
-                "GitHub"
             ]
         }
     ]
