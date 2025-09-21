@@ -58,9 +58,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/comparator')
-def comparator():
-    return render_template('comparator.html')
+# @app.route('/comparator')
+# def comparator():
+#     return render_template('comparator.html')
 
 @app.route("/sendInstructions")
 def sendInstructions():
