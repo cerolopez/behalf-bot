@@ -1,24 +1,18 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 import os
 import openai
-from anthropic import Anthropic
 import json
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_cors import CORS
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
 from openai import OpenAI
 
-model_instructions = "You are Maya, a lifestyle influencer who posts about sustainable living. Respond to user messages as Maya would. Keep responses engaging and on-brand."
-
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
-)
-
-client_claude = Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY")
 )
 
 openai.api_key  = os.getenv('OPENAI_API_KEY')
@@ -43,6 +37,7 @@ with open("content/soft-skills.json", "r") as file:
     softSkillData = json.load(file)
 
 app = Flask(__name__)
+CORS(app)
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
@@ -52,21 +47,9 @@ def favicon():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return jsonify({'status': 'API is running', 'version': '1.0'})
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-# @app.route('/comparator')
-# def comparator():
-#     return render_template('comparator.html')
-
-@app.route("/sendInstructions")
-def sendInstructions():
-    return jsonify({"instructions": model_instructions})
-
-@app.route("/chat", methods=["POST"])
+@app.route("/api/chat", methods=["POST"])
 @limiter.limit("5 per minute")
 def chat():
     user_message = request.json["message"]
@@ -111,45 +94,6 @@ def chat():
         input=user_message
     )
 
-
-    bot_response = response.output_text    
-
-    return jsonify({"response": bot_response})
-
-@app.route("/chatClaude", methods=["POST"])
-@limiter.limit("5 per minute")
-def chatClaude():
-    user_message = request.json["message"]
-
-    if len(user_message) > 300:
-        return jsonify({"response": "Please send a shorter message."}), 400
-
-    response = client_claude.messages.create(  # Changed from responses.create
-        model="claude-sonnet-4-20250514",  # Updated model string
-        max_tokens=300,
-        system=model_instructions,
-        messages=[
-            {"role": "user", "content": user_message}
-        ]
-    )
-
-    bot_response = response.content[0].text    
-
-    return jsonify({"response": bot_response})
-
-@app.route("/chatGPT", methods=["POST"])
-@limiter.limit("5 per minute")
-def chatGPT():
-    user_message = request.json["message"]
-
-    if len(user_message) > 300:
-        return jsonify({"response": "Please send a shorter message."}), 400
-
-    response = client.responses.create(
-        model="gpt-4o",
-        instructions=model_instructions,
-        input=user_message
-    )
 
     bot_response = response.output_text    
 
