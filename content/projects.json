@@ -1,6 +1,18 @@
 {
     "projects": [
         {
+            "name": "Professional Website 2.0", 
+            "skills involved": [
+                "full stack web development", "UX design", "LLM chatbot"
+            ], 
+            "tech stack": [
+                "React", "Tailwind CSS", "Typescript", "Next.js", "Vercel"
+            ],
+            "last updated": "11-2025",
+            "description": "Using Cursor as my AI coding assistant, I designed and built a new professional website from scratch using React, Next.js, Tailwind CSS, and TypeScript. I also added a new chatbot feature on the website using the Behalf Bot API."
+        },
+        {
+            
             "name": "Behalf Bot", 
             "skills involved": [
                 "frontend web development", "backend web development", "prompt engineering", "UX design", "content writing"
@@ -9,7 +21,7 @@
                 "OpenAI API", "Flask", "Render", "Python", "JavaScript", "HTML", "CSS"
             ],
             "last update": "03-2025",
-            "description": "Behalf Bot is an AI chatbot designed to answer recruitment-related questions about my own experience. The chatbot uses OpenAI's GPT-4o to generate responses based on my employment history, skills, referrals, projects, and education. I created this project by myself, which involved creating the UI and design in Figma, creating content and writing instructions for GPT-4, coding the app itself, making it responsive, and deploying to Render."
+            "description": "Behalf Bot is an AI chatbot designed to answer career-related questions about me. The chatbot uses OpenAI's GPT-4 to generate responses based on my employment history, skills, referrals, professional anecdotes, projects, and education. I built the chatbot UI on Flask using Python for the backend and vanilla JavaScript, and HTML/CSS for the frontend. I also made an API to use on my professional website."
         }, 
         {
             "name": "MacroMath", 
