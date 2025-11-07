@@ -24,6 +24,16 @@
             "received": "03-2018",
             "testimonial": "“Insightful and sharp” are the adjectives that come to mind when I think of Cecilia. Cecilia masterfully filled the role of Content Editor for Shmoop University during my time there. She ran multiple concurrent projects, pushing the people who reported to her to create better and better content. I was particularly impressed with Cecilia's ability to move from seemingly disparate projects with ease, making those projects her own. Cecilia, who always made everyone around the office feel welcome, would be an asset to any team."
         }
+    ], 
+    "anecdotes": [
+        {
+            "context": "UX Writer and Content Designer working onsite at Google",
+            "story": "I demonstrated my ability to adapt quickly, think critically, and build scalable solutions when, on my first day, I was tasked with producing a one-page quality comparison of four vendor LLM datasets within 24 hours. Recognizing that a meaningful evaluation required more rigor, I proposed a new approach to my manager: I'd design scoring rubrics, review each line item, and calculate cumulative quality scores. With his approval, I delivered a 14-page analysis in three days that not only answered the original question but also became a training tool for new team members."
+        }, 
+        {
+            "context": "AI/Prompt Engineer at Fleek",
+            "story": "This experience exemplifies how I thrive in fast-moving, ambiguous environments and add value beyond my initial scope. Although hired as a prompt engineer, I quickly identified a project management gap that was slowing progress. With support from leadership, I stepped into that role while continuing my prompt engineering work, coordinating across teams to keep projects on track. The CTO and CEO later commended my contributions, saying the company would not be where it is without that leadership."
+        }
     ]
     
 }
