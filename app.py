@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 import os
 import openai
 import json
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_cors import CORS
+from anthropic import Anthropic
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -17,7 +18,14 @@ client = OpenAI(
 
 openai.api_key  = os.getenv('OPENAI_API_KEY')
 
+client_claude = Anthropic(
+    api_key=os.environ.get("ANTHROPIC_API_KEY")
+)
+
 # Open and load the JSON file
+
+######### FOR BEHALF BOT #########
+
 with open("content/employment-history.json", "r") as file:
     jobData = json.load(file)
 
@@ -36,8 +44,23 @@ with open("content/training.json", "r") as file:
 with open("content/soft-skills.json", "r") as file:
     softSkillData = json.load(file)
 
+######### FOR AI CHARACTERS #########
+
+with open("char-content/yue/facts.json", "r") as file:
+    yueFacts = json.load(file)
+
+with open("char-content/yue/lang.json", "r") as file:
+    yueLang = json.load(file)
+
+with open("char-content/diego/facts.json", "r") as file:
+    diegoFacts = json.load(file)
+
+with open("char-content/diego/lang.json", "r") as file:
+    diegoLang = json.load(file)
+
 app = Flask(__name__)
 CORS(app)
+app.secret_key = 'porcupine-poindexter'
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
@@ -98,6 +121,154 @@ def chat():
     bot_response = response.output_text    
 
     return jsonify({"response": bot_response})
+
+yue_model_instructions = f"""
+You are roleplaying as the character defined in the following JSON files. 
+
+**Language JSON**
+This file contains style notes and example exchanges that define how the character should speak.
+
+- Always mimic these linguistic patterns.
+- Match tone, phrasing, quirks, and sentence length.
+- Use the slang dictionary in to replace common words and phrases with the character's preferred slang.
+- **Do not** use the expanded or formal version of these words.  
+- For example, if the dictionary says "thanks" → "ty", then always output "ty" instead of "thanks".
+- Use the example exchanges as a guide to generate new but consistent responses.
+
+```json
+{yueLang}
+
+**Persona JSON**  
+This file contains canonical facts, attributes, and personality traits.  
+
+- Always treat this as authoritative truth.  
+- Do not invent or contradict facts.  
+- Use the personality traits to modulate behavior and decision-making.
+
+```json
+{yueFacts}
+
+"""
+
+@app.route("/api/yueChat", methods=["POST"])
+@limiter.limit("5 per minute")
+def yueChat():
+    user_message = request.json["message"]
+
+    if len(user_message) > 300:
+        return jsonify({"response": "Please send a shorter message."}), 400
+
+    if "chat_history" not in session:
+        session["chat_history"] = []
+    
+    # Check if limit reached BEFORE processing
+    max_exchanges = 10  # 10 back-and-forth exchanges
+    current_exchanges = len(session["chat_history"]) // 2
+    
+    if current_exchanges >= max_exchanges:
+        return jsonify({
+            "response": "Demo limit reached! Refresh the page to start a new conversation.",
+            "limit_reached": True,
+            "exchanges_used": current_exchanges,
+            "max_exchanges": max_exchanges
+        })
+    
+    session["chat_history"].append({"role": "user", "content": user_message})
+
+    response = client_claude.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=300,
+        system=yue_model_instructions,
+        messages=session["chat_history"]
+    )
+
+    bot_response = response.content[0].text
+    session["chat_history"].append({"role": "assistant", "content": bot_response})
+    session.modified = True
+    
+    # Return count info with every response
+    exchanges_used = len(session["chat_history"]) // 2
+
+    return jsonify({
+        "response": bot_response,
+        "limit_reached": False,
+        "exchanges_used": exchanges_used,
+        "max_exchanges": max_exchanges
+    })
+
+diego_model_instructions = f"""
+You are roleplaying as the character defined in the following JSON files. 
+
+**Language JSON**
+This file contains style notes and example exchanges that define how the character should speak.
+
+- Always mimic these linguistic patterns.
+- Match tone, phrasing, quirks, and sentence length.
+- Use the slang dictionary in to replace common words and phrases with the character's preferred slang.
+- **Do not** use the expanded or formal version of these words.  
+- For example, if the dictionary says "thanks" → "ty", then always output "ty" instead of "thanks".
+- Use the example exchanges as a guide to generate new but consistent responses.
+
+```json
+{diegoLang}
+
+**Persona JSON**  
+This file contains canonical facts, attributes, and personality traits.  
+
+- Always treat this as authoritative truth.  
+- Do not invent or contradict facts.  
+- Use the personality traits to modulate behavior and decision-making.
+
+```json
+{diegoFacts}
+
+"""
+
+@app.route("/api/diegoChat", methods=["POST"])
+@limiter.limit("5 per minute")
+def diegoChat():
+    user_message = request.json["message"]
+
+    if len(user_message) > 300:
+        return jsonify({"response": "Please send a shorter message."}), 400
+
+    if "chat_history" not in session:
+        session["chat_history"] = []
+    
+    # Check if limit reached BEFORE processing
+    max_exchanges = 10  # 10 back-and-forth exchanges
+    current_exchanges = len(session["chat_history"]) // 2
+    
+    if current_exchanges >= max_exchanges:
+        return jsonify({
+            "response": "Demo limit reached! Refresh the page to start a new conversation.",
+            "limit_reached": True,
+            "exchanges_used": current_exchanges,
+            "max_exchanges": max_exchanges
+        })
+    
+    session["chat_history"].append({"role": "user", "content": user_message})
+
+    response = client_claude.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=300,
+        system=diego_model_instructions,
+        messages=session["chat_history"]
+    )
+
+    bot_response = response.content[0].text
+    session["chat_history"].append({"role": "assistant", "content": bot_response})
+    session.modified = True
+    
+    # Return count info with every response
+    exchanges_used = len(session["chat_history"]) // 2
+
+    return jsonify({
+        "response": bot_response,
+        "limit_reached": False,
+        "exchanges_used": exchanges_used,
+        "max_exchanges": max_exchanges
+    })
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5001))
