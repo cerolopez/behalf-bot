@@ -59,7 +59,7 @@ with open("char-content/diego/lang.json", "r") as file:
     diegoLang = json.load(file)
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins=["https://your-frontend-domain.com", "http://localhost:3000"])
+CORS(app, supports_credentials=True, origins=["https://cecilialopez.dev", "http://localhost:3000"])
 app.secret_key = 'porcupine-poindexter'
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
