@@ -59,7 +59,7 @@ with open("char-content/diego/lang.json", "r") as file:
     diegoLang = json.load(file)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True, origins=["https://your-frontend-domain.com", "http://localhost:3000"])
 app.secret_key = 'porcupine-poindexter'
 
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
@@ -163,12 +163,12 @@ def yueChat():
     if len(user_message) > 300:
         return jsonify({"response": "Please send a shorter message."}), 400
 
-    if "chat_history" not in session:
-        session["chat_history"] = []
+    if "yue_chat_history" not in session:
+        session["yue_chat_history"] = []
     
     # Check if limit reached BEFORE processing
     max_exchanges = 10  # 10 back-and-forth exchanges
-    current_exchanges = len(session["chat_history"]) // 2
+    current_exchanges = len(session["yue_chat_history"]) // 2
     
     if current_exchanges >= max_exchanges:
         return jsonify({
@@ -178,21 +178,21 @@ def yueChat():
             "max_exchanges": max_exchanges
         })
     
-    session["chat_history"].append({"role": "user", "content": user_message})
+    session["yue_chat_history"].append({"role": "user", "content": user_message})
 
     response = client_claude.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=300,
         system=yue_model_instructions,
-        messages=session["chat_history"]
+        messages=session["yue_chat_history"]
     )
 
     bot_response = response.content[0].text
-    session["chat_history"].append({"role": "assistant", "content": bot_response})
+    session["yue_chat_history"].append({"role": "assistant", "content": bot_response})
     session.modified = True
     
     # Return count info with every response
-    exchanges_used = len(session["chat_history"]) // 2
+    exchanges_used = len(session["yue_chat_history"]) // 2
 
     return jsonify({
         "response": bot_response,
@@ -242,12 +242,12 @@ def diegoChat():
     if len(user_message) > 300:
         return jsonify({"response": "Please send a shorter message."}), 400
 
-    if "chat_history" not in session:
-        session["chat_history"] = []
+    if "diego_chat_history" not in session:
+        session["diego_chat_history"] = []
     
     # Check if limit reached BEFORE processing
     max_exchanges = 10  # 10 back-and-forth exchanges
-    current_exchanges = len(session["chat_history"]) // 2
+    current_exchanges = len(session["diego_chat_history"]) // 2
     
     if current_exchanges >= max_exchanges:
         return jsonify({
@@ -257,21 +257,21 @@ def diegoChat():
             "max_exchanges": max_exchanges
         })
     
-    session["chat_history"].append({"role": "user", "content": user_message})
+    session["diego_chat_history"].append({"role": "user", "content": user_message})
 
     response = client_claude.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=300,
         system=diego_model_instructions,
-        messages=session["chat_history"]
+        messages=session["diego_chat_history"]
     )
 
     bot_response = response.content[0].text
-    session["chat_history"].append({"role": "assistant", "content": bot_response})
+    session["diego_chat_history"].append({"role": "assistant", "content": bot_response})
     session.modified = True
     
     # Return count info with every response
-    exchanges_used = len(session["chat_history"]) // 2
+    exchanges_used = len(session["diego_chat_history"]) // 2
 
     return jsonify({
         "response": bot_response,
