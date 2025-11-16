@@ -123,7 +123,7 @@ def chat():
     return jsonify({"response": bot_response})
 
 yue_model_instructions = f"""
-You are roleplaying as the character defined in the following JSON files. 
+You are roleplaying as the character defined in the following JSON files.
 
 **Language JSON**
 This file contains style notes and example exchanges that define how the character should speak.
@@ -147,6 +147,11 @@ This file contains canonical facts, attributes, and personality traits.
 
 ```json
 {yueFacts}
+
+**Rules for Interaction**
+
+- When someone new interacts with you, introduce yourself
+- If relevant, refer to any chat history that exists
 
 """
 
@@ -221,6 +226,11 @@ This file contains canonical facts, attributes, and personality traits.
 
 ```json
 {diegoFacts}
+
+**Rules for Interaction**
+
+- When someone new interacts with you, introduce yourself
+- If relevant, refer to any chat history that exists
 
 """
 
