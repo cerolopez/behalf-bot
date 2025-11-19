@@ -62,6 +62,10 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=["https://cecilialopez.dev", "http://localhost:3000"])
 app.secret_key = 'porcupine-poindexter'
 
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'None'
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+
 limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
 @app.route('/favicon.png')
